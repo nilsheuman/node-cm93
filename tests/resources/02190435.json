@@ -1,0 +1,106 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "tippecanoe": {
+          "layer": "LNDARE"
+        },
+        "type": "Feature",
+        "properties": {
+            "iobject": 0,
+            "otype": 81,
+            "geotype": 4,
+            "cmtype": "LNDARE",
+            "typeLabel": "Land area",
+            "file": "02190435.D",
+            "sortKey": 4
+        },
+        "geometry": {
+          "coordinates": [[
+            [
+              [
+                145.55959189310093,
+                -16.384923847112812
+              ],
+              [
+                145.56070580170936,
+                -16.384923847112812
+              ],
+              [
+                145.56018699496025,
+                -16.383793989850826
+              ],
+              [
+                145.55959189310093,
+                -16.384923847112812
+              ]
+            ]
+          ]],
+          "type": "MultiPolygon"
+        }
+      },
+      {
+        "tippecanoe": {
+          "layer": "OTHER"
+        },
+        "type": "Feature",
+        "properties": {
+            "iobject": 1,
+            "otype": 45,
+            "geotype": 130,
+            "cmtype": "DEPCNT",
+            "typeLabel": "Depth contour",
+            "file": "02190435.D",
+            "sortKey": 4,
+            "QUAPOS": 4,
+            "VALDCO": 2
+        },
+        "geometry": {
+          "coordinates": [[
+            
+            [
+              145.55959189310093,
+              -16.384923847112812
+            ],
+            [
+              145.56070580170936,
+              -16.384923847112812
+            ],
+            [
+              145.56018699496025,
+              -16.383793989850826
+            ],
+            [
+              145.55959189310093,
+              -16.384923847112812
+            ]
+            
+          ]],
+          "type": "MultiLineString"
+        }
+      },
+
+      {
+        "tippecanoe": {
+          "layer": "SYMBOL"
+        },
+        "type": "Feature",
+        "properties": {
+            "iobject": 2,
+            "otype": 158,
+            "geotype": 161,
+            "cmtype": "TOWERS",
+            "typeLabel": "Tower",
+            "file": "02190435.D",
+            "sortKey": 4
+        },
+        "geometry": {
+          "coordinates": [
+            145.56009544082804,
+            -16.38440472431943
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  }

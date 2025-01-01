@@ -1,0 +1,27 @@
+{
+  "name": "node-cm93",
+  "version": "1.0.0",
+  "description": "Javascript parser for CM93 sea chart format",
+  "main": "bin/app.js",
+  "scripts": {
+    "testx": "test",
+     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "keywords": [
+    "javascript",
+    "cm93",
+    "geojson",
+    "maplibre"
+  ],
+  "author": "Nils Heuman",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "jest": "^29.7.0"
+  }
+}

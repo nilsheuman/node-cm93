@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "checkJs": true,
+      "allowJs": true,
+      "baseUrl": ".",
+      "paths": {
+        "*": ["lib/*", "tests/*"]
+      }
+    },
+    "include": ["**/*.js", "lib/**/*.d.ts"]
+  }
+  
