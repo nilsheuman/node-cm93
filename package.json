@@ -4,7 +4,6 @@
   "description": "Javascript parser for CM93 sea chart format",
   "main": "bin/app.js",
   "scripts": {
-    "testx": "test",
      "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [

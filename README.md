@@ -2,11 +2,11 @@
 
 Parse CM93 v2 sea charts with vanilla javascript!
 
-`node-cm93` is a console application with a simple html map inspector.
+`node-cm93` is a console application with a simple [html map inspector ↗](https://nilsheuman.github.io/node-cm93/bin/folder-picker.html).
 
 ![chart-sample](docs/chart-sample-pirate.jpg "MapLibre rendered chart")
 
-Sample Chart rendered with [MapLibre](https://maplibre.org/)
+Sample Chart with some extras rendered with [MapLibre](https://maplibre.org/).
 
 ## Features
 
@@ -18,6 +18,8 @@ Sample Chart rendered with [MapLibre](https://maplibre.org/)
 
 ## Usage
 
+Below is an animation of the typical workflow
+
 ![folder-picker](docs/folder-picker.gif "Data Inspector Animation")
 
 First locate your map data folder containing `CM93ATTR.DIC` and a list of folders starting with `00300000`.
@@ -25,11 +27,12 @@ The folder containing this is your `input-path`.
 
 Then clone this repository. The main script is in `bin/app.js`.
 
-To understand the folder structure, open [folder-picker.html](folder-picker.html) in your browser. This visualizes the
+To understand the folder structure, open [folder-picker.html](bin/folder-picker.html) in your browser. This visualizes the
 world location each folder contains. It works locally with no server but requires network connection for loading the map libraries.
 
-To parse files, nodejs is a requirement. Currently no other dependencies is required to run the parser, it is vanilla javascript.
-With nodejs installed, open a terminal window and run something like below
+Parsing files requires Node.js. No additional dependencies are needed to run the parser.
+
+With nodejs installed, open a terminal window and run something like below:
 
 ## Running
 
@@ -44,7 +47,7 @@ This runs the `scan` command with `input-path` = `cm93files/` and `output-path` 
 
 When executed, the program will look into the `cm93files/` folder for the folders `02100420` and `01500420` and for each folder read all files they are containing. The `scan` command only reads the header of the file to figure out its location. Once finished it will output a geojson file into `cm93json/folder-scan.json` containing the positions of each file as a polygon and a point in South West corner.
 
-This file can be loaded into the [folder-picker.html](bin/folder-picker.html) for a visual preview, showing location and a label. The inspector button shows information of entities on the map that the mouse is hovering, click to lock and right click to unlock.
+This file can be loaded into the [folder-picker.html](bin/folder-picker.html) [↗](https://nilsheuman.github.io/node-cm93/bin/folder-picker.html) for a visual preview, showing location and a label. The inspector button shows information of entities on the map that the mouse is hovering, click to lock and right click to unlock.
 
 This is helpful when generating the actual chart files. To generate chart files the command below can be used.
 ```
@@ -228,7 +231,7 @@ The header gives a hint of the bounding box of the data and what values that hav
 
 # Development
 
-This simple console app suffered a bit of feature creep but it's still no dependencies needed for running. Some dev dependencies have been added for linting and a few type files. Development have been done in vscode.
+This simple console app suffered a bit of feature creep but it still requires no dependencies needed for running. Some dev dependencies have been added for linting and a few type files. Development have been done in vscode.
 
 ```
 npm install
