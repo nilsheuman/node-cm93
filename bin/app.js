@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { CM93, HandlerFull, HandlerScan } from '../lib/cm93.js'
+import { CM93, HandlerFull, HandlerScan, HandlerIndex } from '../lib/cm93.js'
 import AttrDictionary from '../lib/cm93/attr-dictionary.js'
 import ObjDictionary from '../lib/cm93/obj-dictionary.js'
 
@@ -16,6 +16,7 @@ const inputDirs = args['-id']
 const inputFiles = args['-if']
 const outputFormat = args['-f'] || 'json'
 const scanOutputFilename = args['-sf'] || 'folder-scan.json'
+const indexOutputFilename = args['-ixf'] || 'index.json'
 const debugLevel = args['-d'] || 0
 const offsetX = args['-ox'] || 0
 const offsetY = args['-oy'] || 0
@@ -31,6 +32,7 @@ const options = {
     debugLevel,
     outputFormat,
     scanOutputFilename,
+    indexOutputFilename,
     offset,
 }
 
@@ -42,8 +44,12 @@ if (mode == 'parse') {
     handler = new HandlerFull(inputPath, outputPath, objDictionary, options)
     console.log('Parsing...')
 } else if (mode == 'scan') {
+    options.onlyHeader = true
     handler = new HandlerScan(inputPath, outputPath, objDictionary, options)
     console.log('Scanning...')
+} else if (mode == 'index') {
+    handler = new HandlerIndex(inputPath, outputPath, objDictionary, options)
+    console.log('Indexing...')
 }
 
 const cm93 = new CM93(handler, attrDictionary, options)
@@ -52,13 +58,14 @@ const files = cm93.createFilelist(inputPath, inputFiles, inputDirs, options.leve
 cm93.parseFiles(files)
 
 function showHelpAndExit() {
-    console.log('usage: node script.js -m <mode:scan|parse> -i <input-path> -o <output-path>')
+    console.log('usage: node script.js -m <mode:scan|parse|index> -i <input-path> -o <output-path>')
     console.log('                      [-ad <attr-dict>] attribute dictionary, default CM93ATTR.DIC')
     console.log('                      [-od <obj-dict>] object dictionary, default CM93OBJ.DIC')
     console.log('                      [-l <levels>] levels to include, default ZABCDEFG')
     console.log('                      [-id <input-directories,>] folders to scan for files, comma separated, relative to input-path')
     console.log('                      [-if <input-files,>] files to parse, if empty, the input-path will be scanned')
     console.log('                      [-sf <fileName] scan output file name, relative to output-path, default folder-scan.json')
+    console.log('                      [-ixf <fileName] index output file name, relative to output-path, default index.json')
     console.log('                      [-f <json|raw>] output format, default json')
     console.log('                      [-d <level>] debug level, default 0')
     console.log('                      [-ox <x>] offset x, default 0')
@@ -68,7 +75,7 @@ function showHelpAndExit() {
 }
 
 function checkArguments() {
-    if (!mode || !['parse', 'scan'].includes(mode)) {
+    if (!mode || !['parse', 'scan', 'index'].includes(mode)) {
         console.log('ERROR: missing <mode> :: parse|scan')
         return showHelpAndExit() 
     }

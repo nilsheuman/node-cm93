@@ -57,8 +57,8 @@ test('writing and reading buffer and converting to geojson', () => {
     // testing the geojson conversion as well
     
     const filename = '02190435.D'
-    const json = handle(result, objDictionary, {filename}, errors) // json contains Coordinate class, needs to be removed
-    const jsonClean = JSON.parse(stringifyAndClean(json)).features
+    const json = handle(result, objDictionary, {filename}, errors) // json contains Coordinate class
+    const jsonClean = JSON.parse(stringifyAndClean(json)).features // remove by reparsing json
     
     const simpleClean = JSON.parse(fs.readFileSync(`tests/resources/${sampleName}.json`)).features
     
@@ -74,18 +74,6 @@ test.skip('update sample binary data file', () => {
 
     expect(1).toBe(0) // this test should be disabled and never succeed
 })
-
-
-test.skip('update sample binary data file', () => {
-    const buffer = writeSample();
-    
-    fs.writeFileSync(`tests/resources/${sampleName}.D`, buffer,  "binary", function(err) {
-        console.log('write error', err)
-    });
-
-    expect(1).toBe(0) // this test should be disabled and never succeed
-})
-
 
 test.skip('update sample-bt binary data file', () => {
     const buffer = writeSampleBt();

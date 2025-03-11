@@ -77,7 +77,8 @@ export const sampleFeatures = [
         geometryType: 4,
         attributes: {},
         coordinates: [ xyCoordsGenerated ],
-        relatedObjects: []
+        relatedObjects: [],
+        vectorIndexes: [0],
     },
     {
         iobject: 1,
@@ -86,7 +87,8 @@ export const sampleFeatures = [
         geometryType: 130,
         attributes: { QUAPOS: 4, VALDCO: 2 },
         coordinates: [ xyCoordsGenerated ],
-        relatedObjects: []
+        relatedObjects: [],
+        vectorIndexes: [],
     },
     {
         iobject: 2,
@@ -95,7 +97,8 @@ export const sampleFeatures = [
         geometryType: 161,
         attributes: {},
         coordinates: xyCoordsGeneratedPt,
-        relatedObjects: []
+        relatedObjects: [],
+        vectorIndexes: [],
     }
 ]
 

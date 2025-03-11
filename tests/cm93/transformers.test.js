@@ -1,6 +1,5 @@
 import { sampleCoordinates, sampleCellInfo } from "./helpers/write-sample.js";
-import { transformLngLatToXY } from '../../lib/cm93/coordinate-utils.js'
-import { transformCoordinates } from '../../lib/geojson/geo-coordinate-utils.js'
+import { transformLngLatToXY, transformCoordinates } from '../../lib/cm93/coordinate-utils.js'
 
 test('transform coordinates', () => {
     // it should be noted that there is precision loss/change going from an arbitrary lnglat coordinate to xy
